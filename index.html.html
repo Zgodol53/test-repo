@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coockie clicker</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div id="left">
+
+<div id="left-box">
+Twoje kremówki
+</div>
+<div id="ilosc"> 
+
+</div>
+<div id="per_sec"> 
+</div>
+
+
+
+
+
+<img src="img/kremowka.png" id="kremowka">
+
+
+</div>
+
+
+<div id="mid">
+
+<button id="dodaj_kremowke" class="btn1">
+    
+    Dodaj 10000 kremówek
+
+</button>
+
+
+<button id="clear" class="btn1">
+    
+    Zacznij grę od nowa
+
+</button>
+
+</div>
+
+<div id="right">
+
+<button class="btn" id="kursor">
+
+<div class="title_owned" id="il_kursor"> 
+0
+</div>
+<div id="pic">
+<img src="img/kursor.png" id="picc">
+</div>  
+
+<div id="wszystko">
+
+<div id="title">
+Kursor
+</div>
+<span id="koszt_kursor"> </span> <br>
+<span id="persec_kursor"> </span> 
+
+</div>
+
+</button>
+
+
+
+<button class="btn" id="babcia">
+
+<div class="title_owned" id="il_babcia"> 
+0
+</div>
+<div id="pic">
+<img src="img/grandma.png" id="picc">
+</div>  
+
+<div id="wszystko">
+
+<div id="title">
+Babcia
+</div>
+<span id="koszt_babcie"> </span> <br>
+<span id="persec_babcie"> </span> 
+</div>
+
+</button>
+
+
+
+<button class="btn" id="farma">
+
+<div class="title_owned" id="il_farma"> 
+0
+</div>
+<div id="pic">
+<img src="img/farma.png" id="picc">
+</div>  
+
+<div id="wszystko">
+
+<div id="title">
+Farma
+</div>
+<span id="koszt_farma"> </span> <br>
+<span id="persec_farma"> </span> 
+</div>
+
+</button>
+
+
+<button class="btn" id="kopalnia">
+
+<div class="title_owned" id="il_kopalnia"> 
+0
+</div>
+<div id="pic">
+<img src="img/kopalnia.png" id="picc">
+</div>  
+
+<div id="wszystko">
+
+<div id="title">
+Kopalnia
+</div>
+<span id="koszt_kopalnia"> </span> <br>
+<span id="persec_kopalnia"> </span> 
+</div>
+
+</button>
+
+<button class="btn" id="fabryka">
+
+<div class="title_owned" id="il_fabryka"> 
+0
+</div>
+<div id="pic">
+<img src="img/fabryka.png" id="picc">
+</div>  
+
+<div id="wszystko">
+
+<div id="title">
+fabryka</div>
+<span id="koszt_fabryka"> </span> <br>
+<span id="persec_fabryka"> </span> 
+</div>
+
+</button>
+
+
+
+
+
+
+
+</div>
+
+
+</body>
+
+
+
+<script type="text/javascript">
+    
+//-------------------------------------Po wczytaniu strony----------------------------------//
+
+if (localStorage.kremowki)
+document.getElementById("ilosc").innerHTML = localStorage.kremowki + " kremówek"
+
+else{
+document.getElementById("ilosc").innerHTML = "0 kremówek"
+}
+
+if (localStorage.kursor)
+document.getElementById("il_kursor").innerHTML = localStorage.kursor
+
+else{
+document.getElementById("il_kursor").innerHTML = "0"
+}
+
+if (localStorage.koszt_kursor)
+document.getElementById("koszt_kursor").innerHTML = "Koszt: " + localStorage.koszt_kursor
+
+else{
+document.getElementById("koszt_kursor").innerHTML = "cena: 10"
+}
+
+if (localStorage.persec_kursor_special)
+document.getElementById("persec_kursor").innerHTML = "Per second: " + Number(localStorage.persec_kursor_special).toFixed(1)
+
+else{
+document.getElementById("persec_kursor").innerHTML = "Per second: 0"
+}
+
+if (localStorage.babcie){
+document.getElementById("il_babcia").innerHTML = localStorage.babcie
+document.getElementById("persec_babcie").innerHTML = "Per second: " + localStorage.babcie
+}
+else{
+document.getElementById("il_babcia").innerHTML = "0"
+document.getElementById("persec_babcie").innerHTML = "Per second: 0"
+}
+
+if (localStorage.koszt_babcie)
+document.getElementById("koszt_babcie").innerHTML = "Koszt: " + localStorage.koszt_babcie
+
+else{
+document.getElementById("koszt_babcie").innerHTML = "cena: 100"
+}
+
+if (localStorage.farma)
+document.getElementById("il_farma").innerHTML = localStorage.farma
+
+else{
+document.getElementById("il_farma").innerHTML = "0"
+}
+
+if (localStorage.koszt_farma)
+document.getElementById("koszt_farma").innerHTML = "Koszt: " + localStorage.koszt_farma
+
+else{
+document.getElementById("koszt_farma").innerHTML = "cena: 1100"
+}
+
+if (localStorage.persec_farma_special)
+document.getElementById("persec_farma").innerHTML = "Per second: " + Number(localStorage.persec_farma_special).toFixed(1)
+
+else{
+document.getElementById("persec_farma").innerHTML = "Per second: 0"
+}
+
+
+if (localStorage.kopalnia)
+document.getElementById("il_kopalnia").innerHTML = localStorage.kopalnia
+
+else{
+document.getElementById("il_kopalnia").innerHTML = "0"
+}
+
+if (localStorage.koszt_kopalnia)
+document.getElementById("koszt_kopalnia").innerHTML = "Koszt: " + localStorage.koszt_kopalnia
+
+else{
+document.getElementById("koszt_kopalnia").innerHTML = "cena: 12000"
+}
+
+if (localStorage.persec_kopalnia_special)
+document.getElementById("persec_kopalnia").innerHTML = "Per second: " + Number(localStorage.persec_kopalnia_special).toFixed(1)
+
+else{
+document.getElementById("persec_kopalnia").innerHTML = "Per second: 0"
+}
+
+
+if (localStorage.fabryka)
+document.getElementById("il_fabryka").innerHTML = localStorage.fabryka
+
+else{
+document.getElementById("il_fabryka").innerHTML = "0"
+}
+
+if (localStorage.koszt_fabryka)
+document.getElementById("koszt_fabryka").innerHTML = "Koszt: " + localStorage.koszt_fabryka
+
+else{
+document.getElementById("koszt_fabryka").innerHTML = "cena: 130000"
+}
+
+if (localStorage.persec_fabryka_special)
+document.getElementById("persec_fabryka").innerHTML = "Per second: " + Number(localStorage.persec_fabryka_special).toFixed(1)
+
+else{
+document.getElementById("persec_fabryka").innerHTML = "Per second: 0"
+}fabryka
+
+
+
+if (localStorage.persec)
+document.getElementById("per_sec").innerHTML = "Per second: " + localStorage.persec
+
+else{
+document.getElementById("per_sec").innerHTML = "Per second: 0"
+}
+
+//-------------------------------------------------------------------------------------------//
+
+
+//------------------------------------Dodawanie kremówki------------------------------------------------//
+kremowka.addEventListener("click", function(){
+
+
+if (localStorage.kremowki) {
+            localStorage.kremowki = Number(localStorage.kremowki)+1;
+        } else {
+            localStorage.kremowki = 1;
+            localStorage.persec = 0;
+        }
+        document.getElementById("ilosc").innerHTML = localStorage.kremowki + " kremówek"
+    
+
+ //------------------------------------------------------------------------------------------------//
+
+
+
+})
+
+//------------------------------------Babcia------------------------------------------------//
+babcia.addEventListener("click", function(){
+
+
+
+if (localStorage.babcie) {
+            if(Number(localStorage.kremowki) >= Number(localStorage.koszt_babcie))
+            {       
+                localStorage.kremowki = localStorage.kremowki - localStorage.koszt_babcie;
+                localStorage.koszt_babcie = Math.round(Number(localStorage.koszt_babcie) * 1.15 ) 
+                localStorage.babcie = Number(localStorage.babcie)+1;
+                localStorage.persec = Number(localStorage.persec) + Number(localStorage.persec_babcie)
+
+                document.getElementById("ilosc").innerHTML = localStorage.kremowki + " kremówek"
+                document.getElementById("il_babcia").innerHTML = localStorage.babcie
+                document.getElementById("koszt_babcie").innerHTML = "Koszt: " + localStorage.koszt_babcie
+                document.getElementById("per_sec").innerHTML = "Per second: " + localStorage.persec
+                document.getElementById("persec_babcie").innerHTML = "Per second: " + localStorage.babcie
+
+
+
+            }
+            else
+                {
+                alert("Nie masz wystarczającej ilości kremówek")
+                }
+
+            } 
+            else
+                {
+            if(localStorage.kremowki >= 100)
+            {
+            localStorage.kremowki = Number(localStorage.kremowki) - 100;
+            localStorage.babcie = 1;
+            localStorage.koszt_babcie = 115;    
+            localStorage.persec_babcie = 1;
+            localStorage.persec = (Number(localStorage.persec) + Number(localStorage.persec_babcie)).toFixed(1)
+           // document.getElementById("ilosc").innerHTML = localStorage.kremowki + " kremówek"
+            document.getElementById("il_babcia").innerHTML = localStorage.babcie
+            document.getElementById("koszt_babcie").innerHTML = "Koszt: " + localStorage.koszt_babcie
+            document.getElementById("per_sec").innerHTML = "Per second: " + localStorage.persec
+            document.getElementById("persec_babcie").innerHTML = "Per second: " + localStorage.babcie
+
+            }
+             else
+                {
+                alert("Nie masz wystarczającej ilości kremówek !")
+                }
+            }
+
+
+
+})
+
+//-----------------------------------------------------------------------------------------//
+
+
+//------------------------------------Kursor------------------------------------------------//
+kursor.addEventListener("click", function(){
+
+
+
+if (localStorage.kursor) {
+            if(Number(localStorage.kremowki) >= Number(localStorage.koszt_kursor))
+            {       
+                localStorage.kremowki = localStorage.kremowki - localStorage.koszt_kursor;
+                localStorage.koszt_kursor = Math.round(Number(localStorage.koszt_kursor) * 1.15 ) 
+                localStorage.kursor = Number(localStorage.kursor)+1;
+                localStorage.persec = (Number(localStorage.persec) + Number(localStorage.persec_kursor)).toFixed(1)
+                localStorage.persec_kursor_special = Number(localStorage.persec_kursor) * Number(localStorage.kursor)
+                //document.getElementById("ilosc").innerHTML = localStorage.kremowki + " kremówek"
+                document.getElementById("il_kursor").innerHTML = localStorage.kursor
+                document.getElementById("koszt_kursor").innerHTML = "Koszt: " + localStorage.koszt_kursor
+                document.getElementById("per_sec").innerHTML = "Per second: " + localStorage.persec
+                document.getElementById("persec_kursor").innerHTML = "Per second: " + Number(localStorage.persec_kursor_special).toFixed(1)
+
+
+
+            }
+            else
+                {
+                alert("Nie masz wystarczającej ilości kremówek")
+                }
+
+            } 
+            else
+                {
+            if(localStorage.kremowki >= 10)
+            {
+            localStorage.kremowki = Number(localStorage.kremowki) - 10;
+            localStorage.kursor = 1;
+            localStorage.koszt_kursor = 18;
+            localStorage.persec_kursor = 0.10;
+            localStorage.persec = (Number(localStorage.persec) + Number(localStorage.persec_kursor)).toFixed(1)
+            localStorage.persec_kursor_special = Number(localStorage.persec_kursor) * Number(localStorage.kursor)
+            //document.getElementById("ilosc").innerHTML = localStorage.kremowki + " kremówek"
+            document.getElementById("il_kursor").innerHTML = localStorage.kursor
+            document.getElementById("koszt_kursor").innerHTML = "Koszt: " + localStorage.koszt_kursor
+            document.getElementById("per_sec").innerHTML = "Per second: " + localStorage.persec
+            document.getElementById("persec_kursor").innerHTML = "Per second: " + Number(localStorage.persec_kursor_special).toFixed(1)
+            }
+             else
+                {
+                alert("Nie masz wystarczającej ilości kremówek !")
+                }
+            }
+
+
+
+})
+
+//-----------------------------------------------------------------------------------------//
+
+
+
+//------------------------------------Farma------------------------------------------------//
+farma.addEventListener("click", function(){
+
+
+
+if (localStorage.farma) {
+            if(Number(localStorage.kremowki) >= Number(localStorage.koszt_farma))
+            {       
+                localStorage.kremowki = localStorage.kremowki - localStorage.koszt_farma;
+                localStorage.koszt_farma = Math.round(Number(localStorage.koszt_farma) * 1.15 ) 
+                localStorage.farma = Number(localStorage.farma)+1;
+                localStorage.persec = Number(localStorage.persec) + Number(localStorage.persec_farma)
+                localStorage.persec_farma_special = Number(localStorage.persec_farma) * Number(localStorage.farma)
+                //document.getElementById("ilosc").innerHTML = localStorage.kremowki + " kremówek"
+                document.getElementById("il_farma").innerHTML = localStorage.farma
+                document.getElementById("koszt_farma").innerHTML = "Koszt: " + localStorage.koszt_farma
+                document.getElementById("per_sec").innerHTML = "Per second: " + localStorage.persec
+                document.getElementById("persec_farma").innerHTML = "Per second: " + Number(localStorage.persec_farma_special).toFixed(1)
+
+
+
+            }
+            else
+                {
+                alert("Nie masz wystarczającej ilości kremówek")
+                }
+
+            } 
+            else
+                {
+            if(localStorage.kremowki >= 1100)
+            {
+            localStorage.kremowki = Number(localStorage.kremowki) - 1100;
+            localStorage.farma = 1;
+            localStorage.koszt_farma = 1265;    
+            localStorage.persec_farma = 8;
+            localStorage.persec = (Number(localStorage.persec) + Number(localStorage.persec_farma)).toFixed(1)
+            localStorage.persec_farma_special = Number(localStorage.persec_farma) * Number(localStorage.farma)
+          //  document.getElementById("ilosc").innerHTML = localStorage.kremowki + " kremówek"
+            document.getElementById("il_farma").innerHTML = localStorage.farma
+            document.getElementById("koszt_farma").innerHTML = "Koszt: " + localStorage.koszt_farma
+            document.getElementById("per_sec").innerHTML = "Per second: " + localStorage.persec
+            document.getElementById("persec_farma").innerHTML = "Per second: " + Number(localStorage.persec_farma_special).toFixed(1)
+
+            }
+             else
+                {
+                alert("Nie masz wystarczającej ilości kremówek !")
+                }
+            }
+
+
+
+})
+
+//-----------------------------------------------------------------------------------------//
+
+
+//------------------------------------Kopalnia------------------------------------------------//
+kopalnia.addEventListener("click", function(){
+
+
+
+if (localStorage.kopalnia) {
+            if(Number(localStorage.kremowki) >= Number(localStorage.koszt_kopalnia))
+            {       
+                localStorage.kremowki = localStorage.kremowki - localStorage.koszt_kopalnia;
+                localStorage.koszt_kopalnia = Math.round(Number(localStorage.koszt_kopalnia) * 1.15 ) 
+                localStorage.kopalnia = Number(localStorage.kopalnia)+1;
+                localStorage.persec = Number(localStorage.persec) + Number(localStorage.persec_kopalnia)
+                localStorage.persec_kopalnia_special = Number(localStorage.persec_kopalnia) * Number(localStorage.kopalnia)
+             //document.getElementById("ilosc").innerHTML = localStorage.kremowki + " kremówek"
+                document.getElementById("il_kopalnia").innerHTML = localStorage.kopalnia
+                document.getElementById("koszt_kopalnia").innerHTML = "Koszt: " + localStorage.koszt_kopalnia
+                document.getElementById("per_sec").innerHTML = "Per second: " + localStorage.persec
+                document.getElementById("persec_kopalnia").innerHTML = "Per second: " + Number(localStorage.persec_kopalnia_special).toFixed(1)
+
+
+
+            }
+            else
+                {
+                alert("Nie masz wystarczającej ilości kremówek")
+                }
+
+            } 
+            else
+                {
+            if(localStorage.kremowki >= 12000)
+            {
+            localStorage.kremowki = Number(localStorage.kremowki) - 12000;
+            localStorage.kopalnia = 1;
+            localStorage.koszt_kopalnia = 13800;    
+            localStorage.persec_kopalnia = 47;
+            localStorage.persec = (Number(localStorage.persec) + Number(localStorage.persec_kopalnia)).toFixed(1)
+            localStorage.persec_kopalnia_special = Number(localStorage.persec_kopalnia) * Number(localStorage.kopalnia)
+            //document.getElementById("ilosc").innerHTML = localStorage.kremowki + " kremówek"
+            document.getElementById("il_kopalnia").innerHTML = localStorage.kopalnia
+            document.getElementById("koszt_kopalnia").innerHTML = "Koszt: " + localStorage.koszt_kopalnia
+            document.getElementById("per_sec").innerHTML = "Per second: " + localStorage.persec
+            document.getElementById("persec_kopalnia").innerHTML = "Per second: " + Number(localStorage.persec_kopalnia_special).toFixed(1)
+
+            }
+             else
+                {
+                alert("Nie masz wystarczającej ilości kremówek !")
+                }
+            }
+
+
+
+})
+
+//-----------------------------------------------------------------------------------------//
+
+
+//------------------------------------fabryka------------------------------------------------//
+fabryka.addEventListener("click", function(){
+
+
+
+if (localStorage.fabryka) {
+            if(Number(localStorage.kremowki) >= Number(localStorage.koszt_fabryka))
+            {       
+                localStorage.kremowki = localStorage.kremowki - localStorage.koszt_fabryka;
+                localStorage.koszt_fabryka = Math.round(Number(localStorage.koszt_fabryka) * 1.15 ) 
+                localStorage.fabryka = Number(localStorage.fabryka)+1;
+                localStorage.persec = Number(localStorage.persec) + Number(localStorage.persec_fabryka)
+                localStorage.persec_fabryka_special = Number(localStorage.persec_fabryka) * Number(localStorage.fabryka)
+                //document.getElementById("ilosc").innerHTML = localStorage.fabryka + " kremówek"
+                document.getElementById("il_fabryka").innerHTML = localStorage.fabryka
+                document.getElementById("koszt_fabryka").innerHTML = "Koszt: " + localStorage.koszt_fabryka
+                document.getElementById("per_sec").innerHTML = "Per second: " + localStorage.persec
+                document.getElementById("persec_fabryka").innerHTML = "Per second: " + Number(localStorage.persec_fabryka_special).toFixed(1)
+
+
+
+            }
+            else
+                {
+                alert("Nie masz wystarczającej ilości kremówek")
+                }
+
+            } 
+            else
+                {
+            if(localStorage.kremowki >= 13000)
+            {
+            localStorage.kremowki = Number(localStorage.kremowki) - 13000;
+            localStorage.fabryka = 1;
+            localStorage.koszt_fabryka = 149500;    
+            localStorage.persec_fabryka = 260;
+            localStorage.persec = (Number(localStorage.persec) + Number(localStorage.persec_fabryka)).toFixed(1)
+            localStorage.persec_fabryka_special = Number(localStorage.persec_fabryka) * Number(localStorage.fabryka)
+            //document.getElementById("ilosc").innerHTML = localStorage.kremowki + " kremówek"
+            document.getElementById("il_fabryka").innerHTML = localStorage.fabryka
+            document.getElementById("koszt_fabryka").innerHTML = "Koszt: " + localStorage.koszt_fabryka
+            document.getElementById("per_sec").innerHTML = "Per second: " + localStorage.persec
+            document.getElementById("persec_fabryka").innerHTML = "Per second: " + Number(localStorage.persec_fabryka_special).toFixed(1)
+
+            }
+             else
+                {
+                alert("Nie masz wystarczającej ilości kremówek !")
+                }
+            }
+
+
+
+})
+
+//-----------------------------------------------------------------------------------------//
+
+
+
+//----------------------------------------Persec---------------------------------------------//
+var myVar = setInterval(persec, 1000);
+function persec(){
+    if(Number(localStorage.persec)>0)
+    {
+localStorage.kremowki = (Number(localStorage.persec) + Number(localStorage.kremowki)).toFixed(1)
+document.getElementById("ilosc").innerHTML = Number(localStorage.kremowki).toFixed(1) + " kremówek"
+}
+
+
+}
+
+//------------------------------------------------------------------------------------------//
+
+
+dodaj_kremowke.addEventListener("click", function(){
+
+    if (localStorage.kremowki)
+    {
+        localStorage.kremowki = Number(localStorage.kremowki) + 10000
+        document.getElementById("ilosc").innerHTML = localStorage.kremowki + " kremówek"
+    } 
+    else{
+        alert("Kliknij chociaz raz kremowke  :)")
+    }
+})
+
+
+clear.addEventListener("click", function(){
+    localStorage.clear();
+    location.reload();
+})
+</script>
+</html>

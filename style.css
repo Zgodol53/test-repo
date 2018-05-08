@@ -1,0 +1,143 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body{
+	background-image: url(img/tlo.jpg);
+}
+
+#left{
+	float: left;
+	border: 1px solid;
+	width: 30%;
+	height: 100vh;
+	text-align: center;
+	
+}
+
+#kremowka{	
+	margin-top: 100px;
+}
+
+#kremowka:hover{
+	width: 405px;
+	height: 405px;
+	cursor: pointer;
+}
+
+#left-box{
+	margin-top: 100px;
+}
+
+#mid{
+	display: flex;
+	justify-content: center;
+	float: left;
+	border: 1px solid;
+	width: 50%;
+	height: 100vh;
+	font-size: 30px;
+	
+}
+
+#right{
+	float: left;
+	border: 1px solid;
+	width: 20%;
+	height: 100vh;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	
+}
+
+
+#left-box{
+	color: white;
+	margin-bottom: 10px;
+	background-color:rgba(0,0,0,0.3);
+	font-size: 25px;
+}
+
+#ilosc{
+	color: white;
+	background-color:rgba(0,0,0,0.3);
+	font-size: 20px;
+}
+
+#per_sec{
+	color: white;
+	background-color:rgba(0,0,0,0.3);
+	font-size: 20px;
+}
+
+
+.btn{
+	position: relative;
+	background-color:rgba(0,0,0,0.6);
+	color: white;
+	width: 90%;
+	height: 10%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:50px;
+	
+}
+
+.btn1{
+	position: relative;
+	background-color:rgba(0,0,0,0.6);
+	color: white;
+	width: 90%;
+	height: 10%;
+	
+
+	
+}
+.btn:first-child{
+	margin-top: -30px;
+}
+
+
+#wszystko{
+position: absolute;
+left: 110px;
+top: 5px;
+
+
+}
+
+#pic{
+	position: absolute;
+	top: 0;
+	left: 5px;
+	
+}
+
+#picc{
+	width: 75px;
+	height: 85px;
+}
+
+#title{
+margin-top: 10px;
+font-size: 30px;
+
+}
+#koszt{
+	
+
+}
+
+.title_owned{
+	position: absolute;
+	right: 15px;
+	font-size: 40px;
+	top: 25px;
+
+
+	
+}
